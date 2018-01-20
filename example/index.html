@@ -330,19 +330,25 @@
 
     $('.popup-login-facebook').click(function (e) {
       e.preventDefault();
-      webAuth.popup.authorize({ connection: 'facebook' }, htmlConsole.dumpCallback.bind(htmlConsole));
+      webAuth.popup.authorize({
+        connection: 'facebook',
+        redirectUri: 'https://localhost:3000/example/callback_popup.html'
+      }, htmlConsole.dumpCallback.bind(htmlConsole));
     });
 
     $('.popup-login-hosted').click(function (e) {
       e.preventDefault();
       webAuth.popup.authorize({
-        redirectURI: 'https://localhost:3000/example/callback_popup.html'
+        redirectUri: 'https://localhost:3000/example/callback_popup.html'
       }, htmlConsole.dumpCallback.bind(htmlConsole));
     });
 
     $('.popup-login-twitter').click(function (e) {
       e.preventDefault();
-      webAuth.popup.authorize({ connection: 'twitter' }, htmlConsole.dumpCallback.bind(htmlConsole));
+      webAuth.popup.authorize({
+        connection: 'twitter',
+        redirectUri: 'https://localhost:3000/example/callback_popup.html'
+      }, htmlConsole.dumpCallback.bind(htmlConsole));
     });
 
     $('.popup-login-github').click(function (e) {

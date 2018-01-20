@@ -41,7 +41,7 @@
     "qs": "^6.4.0",
     "superagent": "^3.8.2",
     "url-join": "^1.1.0",
-    "winchan": "^0.2.0"
+    "winchan": "luisrudge/winchan"
   },
   "devDependencies": {
     "codecov": "^1.0.1",

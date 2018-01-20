@@ -1,5 +1,5 @@
 var urljoin = require('url-join');
-
+var WinChan = require('winchan');
 var urlHelper = require('../helper/url');
 var assert = require('../helper/assert');
 var responseHandler = require('../helper/response-handler');
@@ -83,18 +83,23 @@ Popup.prototype.getPopupHandler = function(options, preload) {
  * @see   {@link parseHash}
  */
 Popup.prototype.callback = function(options) {
+  if (!window.opener) {
+    window.doPost = function(msg, origin) {
+      if (window.parent) {
+        window.parent.postMessage(msg, origin);
+      }
+    };
+    return;
+  }
   var _this = this;
   options = options || {};
   var originUrl =
     options.popupOrigin || this.baseOptions.popupOrigin || windowHelper.getWindow().origin;
-  _this.webAuth.parseHash(options || {}, function(err, data) {
-    // {a, d} is WinChan's message format.
-    // We have to keep the same format because we're opening the popup with WinChan.
-    var response = { a: 'response', d: data };
-    if (err) {
-      response = { a: 'error', d: err };
-    }
-    windowHelper.getWindow().opener.postMessage(JSON.stringify(response), originUrl);
+
+  WinChan.onOpen(originUrl, function(origin, r, cb) {
+    _this.webAuth.parseHash(options || {}, function(err, data) {
+      return cb(err || data);
+    });
   });
 };
 

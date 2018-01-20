@@ -1956,7 +1956,7 @@ husky@^0.13.3:
     is-ci "^1.0.9"
     normalize-path "^1.0.0"
 
-idtoken-verifier@^1.1.0:
+idtoken-verifier@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/idtoken-verifier/-/idtoken-verifier-1.1.1.tgz#bc6eb46e6a153bb2058aed1cac2c27ac6751b5e5"
   dependencies:
@@ -4664,9 +4664,9 @@ wide-align@^1.1.0:
   dependencies:
     string-width "^1.0.1"
 
-winchan@^0.2.0:
+winchan@luisrudge/winchan:
   version "0.2.0"
-  resolved "https://registry.yarnpkg.com/winchan/-/winchan-0.2.0.tgz#3863028e7f974b0da1412f28417ba424972abd94"
+  resolved "https://codeload.github.com/luisrudge/winchan/tar.gz/7d61d68d919b08a631dfd4977e2e4dd3e2d8c6ef"
 
 window-size@0.1.0:
   version "0.1.0"
